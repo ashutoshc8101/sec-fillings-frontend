@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from 'src/app/services/auth.service';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -14,11 +15,16 @@ export class NavbarComponent {
   public sidebarToggled = false;
 
   constructor(
+    private authService: AuthService,
     config: NgbDropdownConfig,
     private router: Router,
     private searchService: SearchService
     ) {
     config.placement = 'bottom-right';
+  }
+
+  logout(): void {
+    this.authService.logOut();
   }
 
   searchNav(query: string): void {

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { CompareModalComponent } from "../modals/compare-modal.component";
 import { CompanyDataService } from "../services/company-data.service";
@@ -13,6 +13,7 @@ export class CompanyPage {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private companyDataService: CompanyDataService,
     private ngbModal: NgbModal
   ) {}
@@ -27,7 +28,7 @@ export class CompanyPage {
   compare(): void {
     let modalRef = this.ngbModal.open(CompareModalComponent);
     modalRef.result.then((result) => {
-
+      this.router.navigateByUrl('/compare/' + this.companyData.cik + '/' + result);
     }, () => {});
   }
 }
