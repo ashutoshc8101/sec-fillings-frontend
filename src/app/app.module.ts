@@ -16,14 +16,28 @@ import { TodoComponent } from './apps/todo-list/todo/todo.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
+import { SearchComponent } from './search/search.component';
+import { MetricsComponent } from './metrics/metrics.component';
+import { CompanyPage } from './company-page/company-page.component';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { ProfilePageComponent } from './profile/profile-page.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { LoginPageComponent } from './auth/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SidebarComponent,
+    CompanyPage,
+    SearchComponent,
+    MetricsComponent,
+    LineChartComponent,
+    ProfilePageComponent,
     FooterComponent,
     DashboardComponent,
+    FavouritesComponent,
+    LoginPageComponent,
     TodoListComponent,
     TodoComponent,
     SpinnerComponent,

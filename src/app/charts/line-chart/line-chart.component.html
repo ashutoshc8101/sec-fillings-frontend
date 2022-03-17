@@ -1,0 +1,17 @@
+<div style="display: block; width: 300px; height: 300px">
+  <div class="heading"><b>Monthly Recurring Revenue: (MRR)</b></div>
+  <canvas baseChart width="200" height="200"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [options]="lineChartOptions"
+          [colors]="lineChartColors"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"
+          [plugins]="lineChartPlugins">
+  </canvas>
+</div>
+<style>
+  .heading {
+    margin-bottom: 15px;
+  }
+</style>

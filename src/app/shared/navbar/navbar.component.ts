@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,15 +9,27 @@ import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./navbar.component.scss'],
   providers: [NgbDropdownConfig]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
-  
-  constructor(config: NgbDropdownConfig) {
+
+  constructor(
+    config: NgbDropdownConfig,
+    private router: Router,
+    private searchService: SearchService
+    ) {
     config.placement = 'bottom-right';
   }
 
-  ngOnInit() {
+  searchNav(query: string): void {
+    if (this.router.url !== '/search') {
+      this.router.navigate(['/search']);
+    }
+    this.searchService.setSearchQuery(query);
+  }
+
+  getSearchQuery(): string {
+    return this.searchService.query;
   }
 
   // toggle sidebar in small devices

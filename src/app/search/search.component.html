@@ -1,0 +1,43 @@
+<input class="form-control form-control-lg search-input"
+       type="text"
+       [(ngModel)]="searchTerm"
+       placeholder="Search by company name"
+       (keydown)="search()"
+       >
+
+<div class="card recent-searchs-card">
+  <div class="card-body">
+    <div class="recent-searches" *ngIf="!searchTerm">
+      <h3>Recent Searches: </h3>
+      <ul>
+        <li>Company 1</li>
+        <li>Company 2</li>
+        <li>Company 3</li>
+        <li>Company 4</li>
+      </ul>
+    </div>
+    <div class="results" *ngIf="searchTerm">
+      <h3>Results</h3>
+      <h5 *ngIf="!results.length">No results found</h5>
+      <ul>
+        <li *ngFor="let result of results">
+          <a [routerLink]="'/company/' + result.cik">{{ result.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .search-input {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .recent-searchs-card {
+    width: 80%;
+    margin: 30px auto;
+  }
+</style>
