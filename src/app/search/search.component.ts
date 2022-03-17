@@ -22,11 +22,11 @@ export class SearchComponent {
       cik: '678677',
       ticket: '12312'
     }
-];
+  ];
 
   constructor(
     private searchService: SearchService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.searchService.searchQueryUpdateEventEmitter.subscribe((query) => {

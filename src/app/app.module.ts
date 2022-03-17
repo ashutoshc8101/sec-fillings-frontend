@@ -23,6 +23,7 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { ProfilePageComponent } from './profile/profile-page.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { LoginPageComponent } from './auth/login-page.component';
+import { CompareModalComponent } from './modals/compare-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LoginPageComponent } from './auth/login-page.component';
     CompanyPage,
     SearchComponent,
     MetricsComponent,
+    CompareModalComponent,
     LineChartComponent,
     ProfilePageComponent,
     FooterComponent,

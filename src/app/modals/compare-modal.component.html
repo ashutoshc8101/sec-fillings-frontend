@@ -1,0 +1,18 @@
+<div class="compare-modal">
+  <h3>Select company to compare</h3>
+  <input type="text" name="search" class="form-control" id="search" placeholder="Search for companies"
+      [(ngModel)]="query" (ngModelChange)="search()">
+  <ul class="list-group" style="margin-top: 20px">
+    <li class="list-group-item list-group-item-action"
+        *ngFor="let company of filteredList"
+        (click)="confirm(company.cik)">
+    {{ company.name }}
+  </li>
+  </ul>
+</div>
+
+<style>
+  .compare-modal {
+    padding: 20px;
+  }
+</style>

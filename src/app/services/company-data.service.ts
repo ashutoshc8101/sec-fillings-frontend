@@ -18,4 +18,15 @@ export class CompanyDataService {
   getCompanyDataFromCIK(cik: string) {
     return this.companyData.find(obj => obj.cik === cik);
   }
+
+  getCompaniesFromSearchQuery(query: string): Object[] {
+    if (!query) {
+      return [];
+    }
+
+    let filteredList = this.companyData.filter((result) => {
+      return result.name.toLowerCase().search(query.toLowerCase()) > -1;
+    });
+    return filteredList;
+  }
 }

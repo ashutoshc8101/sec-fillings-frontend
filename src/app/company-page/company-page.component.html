@@ -1,7 +1,7 @@
 <div *ngIf="companyData">
   <div class="card">
     <div class="card-body">
-      <button type="button" class="btn btn-primary compare-btn">Compare</button>
+      <button type="button" class="btn btn-primary compare-btn" (click)="compare()">Compare</button>
       <h1>{{ companyData.name }}</h1>
 
       <ul>
