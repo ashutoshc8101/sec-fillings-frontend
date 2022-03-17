@@ -4,21 +4,20 @@ import { EventEmitter, Injectable } from "@angular/core";
   providedIn: 'root'
 })
 export class AuthService {
-  private _isLoggedIn = false;
   private _authChangedEventEmitter = new EventEmitter<boolean>();
 
   logIn(): void {
-    this._isLoggedIn = true;
-    this._authChangedEventEmitter.emit(this._isLoggedIn);
+    localStorage.setItem('loggedIn', '' + true);
+    this._authChangedEventEmitter.emit(true);
   }
 
   logOut(): void {
-    this._isLoggedIn = false;
-    this._authChangedEventEmitter.emit(this._isLoggedIn);
+    localStorage.setItem('loggedIn', '' + false);
+    this._authChangedEventEmitter.emit(false);
   }
 
   get isLoggedIn(): boolean {
-    return this._isLoggedIn;
+    return localStorage.getItem('loggedIn') === 'true';
   }
 
   get authChangedEventEmitter(): EventEmitter<boolean> {
