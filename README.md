@@ -29,7 +29,7 @@ Python >= 3.7 recommended. Python 2 not supported.
 **Installation**
 
 ```
-git clone git@github.com:ashutoshc8101/SEC-filings-backend.git
+git clone https://github.com/ashutoshc8101/SEC-filings-backend.git
 cd SEC-filings-backend
 python -m venv venv
 source venv/bin/activate
