@@ -20,7 +20,7 @@ npm install
 
 3. Run frontend locally using
 ```
-ng serve
+npx ng serve
 ```
 
 ### Backend
@@ -30,6 +30,7 @@ Python >= 3.7 recommended. Python 2 not supported.
 
 ```
 git clone git@github.com:ashutoshc8101/SEC-filings-backend.git
+cd SEC-filings-backend
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
