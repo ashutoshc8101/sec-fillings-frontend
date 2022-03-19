@@ -10,7 +10,7 @@
     </button>
     <div class="search-field d-none d-md-block">
       <form class="d-flex align-items-center h-100" action="#">
-        <div class="input-group">
+        <div class="input-group nav-search-field">
           <div class="input-group-prepend bg-transparent">
             <i class="input-group-text border-0 mdi mdi-magnify"></i>
           </div>
@@ -29,11 +29,11 @@
         <a class="nav-link dropdown-toggle" id="profileDropdown" ngbDropdownToggle
            routerLink="profile">
           <div class="nav-profile-img">
-            <img src="assets/images/faces/face1.jpg" alt="image">
-            <span class="availability-status online"></span>
+            <img src="assets/images/faces/face1.png" alt="image">
+            <!-- <span class="availability-status online"></span> -->
           </div>
           <div class="nav-profile-text">
-            <p class="mb-1 text-black">David Greymaax</p>
+            <p class="mb-1 text-black">{{ user.username }}</p>
           </div>
         </a>
       </li>
@@ -71,10 +71,10 @@
   }
 
   #profileDropdown:hover {
-    background-color: #f2edf3;
+    background-color: #eee  ;
   }
   .sign-out {
-    background-color: rgba(220, 20, 60, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     transition: background-color 0.3s;
     padding: 10px 20px;
     border-radius: 5px;
@@ -84,6 +84,6 @@
   .sign-out:hover {
     color: white;
     text-decoration: none;
-    background-color: rgba(220, 20, 60, 1);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 </style>

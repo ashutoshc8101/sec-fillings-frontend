@@ -41,7 +41,7 @@ $colors: (
 
 
 $theme-colors: (
-  primary:         #b66dff,
+  primary:         black,
   secondary:       #d8d8d8,
   success:         #1bcfb4,
   info:            #198ae3,
@@ -66,7 +66,7 @@ $theme-gradient-colors: (
 ////////// COLOR SYSTEM //////////
 
 ////////// COLOR VARIABLES //////////
-$content-bg: #f2edf3;
+$content-bg: #fff;
 $footer-bg: $content-bg;
 $footer-color: color(dark);
 $border-color: #ebedf2;
@@ -96,7 +96,7 @@ $social-colors: (
 
 $type1-light:     'ubuntu-light', sans-serif;
 $type1-regular:    'ubuntu-regular', sans-serif;
-$type1-medium:    'ubuntu-medium', sans-serif;
+$type1-medium:    'Raleway-medium', sans-serif;
 $type1-bold:     'ubuntu-bold', sans-serif;
 
 $default-font-size: .875rem; // 14px as base font size
@@ -130,7 +130,7 @@ $sidebar-menu-padding-x: 2.25rem;
 $sidebar-submenu-font-size: .8125rem;
 $sidebar-submenu-item-padding: .75rem 2rem .75rem 2rem;
 
-$sidebar-icon-font-size: 1.125rem;
+$sidebar-icon-font-size: 1.5rem;
 $sidebar-arrow-font-size: .625rem;
 
 $sidebar-profile-bg: transparent;

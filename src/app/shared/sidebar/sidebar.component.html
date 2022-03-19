@@ -2,14 +2,14 @@
   <ul class="nav">
     <li class="nav-item" [ngClass]="{ 'active': searchTab.isActive }">
       <a class="nav-link" routerLink="/search" routerLinkActive #searchTab="routerLinkActive">
-        <span class="menu-title">Search</span>
         <i class="mdi mdi-home menu-icon"></i>
+        <span class="menu-title">Search</span>
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': favourites.isActive }">
       <a class="nav-link" routerLink="favourites" routerLinkActive #favourites="routerLinkActive">
-        <span class="menu-title">Favourites</span>
         <i class="mdi mdi mdi-heart menu-icon"></i>
+        <span class="menu-title">Favourites</span>
       </a>
     </li>
   </ul>

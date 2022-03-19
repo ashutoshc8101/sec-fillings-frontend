@@ -24,6 +24,11 @@ export class CompareModalComponent {
   }
 
   search(): void {
-    this.filteredList = this.companyDataService.getCompaniesFromSearchQuery(this.query);
+    this.companyDataService.getCompaniesFromSearchQuery(this.query)
+      .then((res) => {
+        this.filteredList = res;
+      }, (err) => {
+        console.error(err);
+      });
   }
 }

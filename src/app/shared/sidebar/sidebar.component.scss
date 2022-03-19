@@ -41,6 +41,7 @@
         transition-property: color;
         -webkit-transition-property: color;
         cursor: pointer;
+        float: left;
 
         i {
           color: inherit;
@@ -53,7 +54,7 @@
               margin-left: 0;
               margin-right: auto;
             }
-            color: $sidebar-menu-icon-color;
+            color: #555;
             &:before {
               vertical-align: middle;
             }
@@ -86,12 +87,16 @@
         }
 
         .menu-title {
-          color: inherit;
+          color: #555;
+          font-weight: 500;
+          font-size: 17px !important;
           display: inline-block;
           font-size: $sidebar-menu-font-size;
           line-height: 1;
           vertical-align: middle;
+          margin-left: 20px;
         }
+
 
         .badge {
           margin-right: auto;
@@ -108,10 +113,12 @@
       }
 
       &.active {
+        border-left: 3px solid black;
         .nav-link {
           .menu-title {
-            color: $sidebar-menu-active-color;
-            font-family: $type1-medium;            
+            font-weight: 500;
+            font-family: $type1-medium;
+            color: theme-color(primary);
           }
           i {
             color: theme-color(primary);
@@ -216,6 +223,7 @@
           &.active {
             color: $sidebar-menu-active-color;
             background: transparent;
+            border-left: 3px solid black;
           }
           &:hover {
             color: $sidebar-submenu-hover-color;
@@ -245,7 +253,7 @@
           .nav-link {
             display: block;
             padding-left: .5rem;
-            padding-right: .5rem;            
+            padding-right: .5rem;
             text-align: center;
             position: static;
             .menu-title,
@@ -291,7 +299,7 @@
                 z-index: 1;
                 line-height: 1.8;
                 -webkit-box-shadow: 4px 0px 7px 0px rgba(182, 185, 189, 0.25);
-                        box-shadow: 4px 0px 7px 0px rgba(182, 185, 189, 0.25);              
+                        box-shadow: 4px 0px 7px 0px rgba(182, 185, 189, 0.25);
                 &:after {
                   display: none;
                 }
@@ -365,4 +373,9 @@
       right: 0;
     }
   }
+}
+
+.sidebar {
+  font-family: Raleway;
+  border-right: 2px solid #eee;
 }

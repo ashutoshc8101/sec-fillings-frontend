@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,16 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  user = {
+    username: '',
+    email: ''
+  };
 
   toggleProBanner(event) {
-    console.log("123");
     event.preventDefault();
     document.querySelector('body').classList.toggle('removeProbanner');
   }
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
+
   }
 
   date: Date = new Date();

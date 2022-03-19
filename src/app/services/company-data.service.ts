@@ -1,32 +1,46 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { AuthService } from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyDataService {
-  companyData = [{
-      cik: '2323',
-      name: 'Zoom Communications',
-      ticket: '1290283',
-    },
-    {
-      cik: '678677',
-      name: 'Dominos',
-      ticket: '12123'
-    }];
 
-  getCompanyDataFromCIK(cik: string) {
-    return this.companyData.find(obj => obj.cik === cik);
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+  ) {}
+
+  getCompanyDataFromCIK(cik: string): Promise<Object | null> {
+    return this.http.get('http://localhost:8000/company/company/?comp_cik=' + cik, {
+      headers: {
+        Authorization: 'Token ' + this.authService.getToken()
+      },
+
+    }).toPromise()
+      .then((resp) => {
+        return resp;
+      }, (err) => {
+        console.error(err);
+        return null;
+      });
   }
 
-  getCompaniesFromSearchQuery(query: string): Object[] {
+  getCompaniesFromSearchQuery(query: string): Promise<Object[] | null> {
     if (!query) {
-      return [];
+      return null;
     }
 
-    let filteredList = this.companyData.filter((result) => {
-      return result.name.toLowerCase().search(query.toLowerCase()) > -1;
+    return this.http.get<Object[]>('http://localhost:8000/company/search/', {
+      params: {
+        search: query
+      }
+    }).toPromise().then((result) => {
+      return result;
+    }, (error) => {
+      console.error(error);
+      return null;
     });
-    return filteredList;
   }
 }

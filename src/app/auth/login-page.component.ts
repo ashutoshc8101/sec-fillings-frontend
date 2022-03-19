@@ -8,13 +8,24 @@ import { AuthService } from "../services/auth.service";
 export class LoginPageComponent {
   loginView = true;
   registerView = false;
+  email: string = '';
+  username: string = '';
+  password: string = '';
 
   constructor(
     private authService: AuthService
   ) {}
 
   login(): void {
-    this.authService.logIn();
+    if (this.email !== '' || this.password !== '') {
+      this.authService.logIn(this.email, this.password);
+    }
+  }
+
+  register(): void {
+    if (this.email !== '' || this.password !== '' || this.username !== '') {
+      this.authService.register(this.email, this.username, this.password);
+    }
   }
 
   showRegisterView(): void {

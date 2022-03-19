@@ -1,26 +1,26 @@
 <div class="container">
-  <div class="row">
+  <div class="row" *ngIf="companyData1 && companyData2">
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3><b>{{ companyData1.name }}</b></h3>
-          <h5>CIK: {{ companyData1.cik }}</h5>
-          <h5>Ticket: {{ companyData1.ticket }}</h5>
-          <h5>Growth: 45</h5>
-          <h5>Profitability: 23</h5>
-          <h5>Investability: 56</h5>
+          <h3><b>{{ companyData1.company_data[0].Name }}</b></h3>
+          <h5>CIK: {{ companyData1.company_data[0].CIK_Number }}</h5>
+          <h5>Ticket: {{ companyData1.company_data[0].Ticket_Number }}</h5>
+          <h5>Growth: {{ companyData1.performance_data[0][0].Growth }}</h5>
+          <h5>Profitability: {{ companyData1.performance_data[0][0].Profitability }}</h5>
+          <h5>Investability: {{ companyData1.performance_data[0][0].Investibility }}</h5>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3><b>{{ companyData2.name }}</b></h3>
-          <h5>CIK: {{ companyData2.cik }}</h5>
-          <h5>Ticket: {{ companyData2.ticket }}</h5>
-          <h5>Growth: 55</h5>
-          <h5>Profitability: 33</h5>
-          <h5>Investability: 78</h5>
+          <h3><b>{{ companyData2.company_data[0].Name }}</b></h3>
+          <h5>CIK: {{ companyData2.company_data[0].CIK_Number }}</h5>
+          <h5>Ticket: {{ companyData2.company_data[0].Ticket_Number }}</h5>
+          <h5>Growth: {{ companyData2.performance_data[0][0].Growth }}</h5>
+          <h5>Profitability: {{ companyData2.performance_data[0][0].Profitability }}</h5>
+          <h5>Investability: {{ companyData2.performance_data[0][0].Investibility }}</h5>
         </div>
       </div>
     </div>

@@ -1,9 +1,12 @@
 <div class="card favourites-card">
   <div class="card-body">
     <h1>Favourites</h1>
-    <div class="list-group">
-      <a routerLink="/company/2323" class="list-group-item list-group-item-action">Zoom</a>
-      <a routerLink="/company/678677" class="list-group-item list-group-item-action">Dominos</a>
+    <div class="row">
+      <company-card [companyName]="favourite.Name"
+                    [cik]="favourite.CIK_Number"
+                    class="favourites"
+                    *ngFor="let favourite of favourites">
+      </company-card>
     </div>
   </div>
 </div>
@@ -15,5 +18,9 @@
   .favourites-card {
     margin: auto;
     width: 80%;
+  }
+
+  .row {
+    margin: 0;
   }
 </style>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { SearchService } from 'src/app/services/search.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +14,27 @@ import { SearchService } from 'src/app/services/search.service';
 export class NavbarComponent {
   public iconOnlyToggled = false;
   public sidebarToggled = false;
+  user = {
+    username: '',
+    email: ''
+  };
 
   constructor(
     private authService: AuthService,
     config: NgbDropdownConfig,
     private router: Router,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private userService: UserService
     ) {
     config.placement = 'bottom-right';
+  }
+
+  ngOnInit(): void {
+    this.userService.getUser().then((res) => {
+      this.user = res.data;
+    }, (err) => {
+      console.error(err);
+    });
   }
 
   logout(): void {

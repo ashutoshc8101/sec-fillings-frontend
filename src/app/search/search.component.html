@@ -8,22 +8,21 @@
 <div class="card recent-searchs-card">
   <div class="card-body">
     <div class="recent-searches" *ngIf="!searchTerm">
-      <h3>Recent Searches: </h3>
-      <ul>
-        <li>Company 1</li>
-        <li>Company 2</li>
-        <li>Company 3</li>
-        <li>Company 4</li>
-      </ul>
+      <h5 style="margin-bottom: 10px;">Most Viewed</h5>
+      <div class="container">
+        <div class="row">
+          <company-card [companyName]="result.Name" [cik]="result.CIK_Number" *ngFor="let result of mostViewed"></company-card>
+        </div>
+      </div>
     </div>
     <div class="results" *ngIf="searchTerm">
-      <h3>Results</h3>
+      <h5 style="margin-bottom: 10px;">Results</h5>
       <h5 *ngIf="!results.length">No results found</h5>
-      <ul>
-        <li *ngFor="let result of results">
-          <a [routerLink]="'/company/' + result.cik">{{ result.name }}</a>
-        </li>
-      </ul>
+      <div class="container">
+        <div class="row">
+          <company-card [companyName]="result.Name" [cik]="result.CIK_Number" *ngFor="let result of results"></company-card>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -34,10 +33,19 @@
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    border: 2px solid #555;
+  }
+  .search-input::placeholder {
+    font-size: 1.0rem;
+    color: #999;
   }
 
   .recent-searchs-card {
     width: 80%;
     margin: 30px auto;
+  }
+
+  .recent-searchs-card > .card-body {
+    padding: 0;
   }
 </style>

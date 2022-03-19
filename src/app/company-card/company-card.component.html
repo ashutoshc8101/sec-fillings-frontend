@@ -1,0 +1,31 @@
+<div class="col col-card no-padding">
+  <a [routerLink]="'/company/' + cik">
+    <div class="card company-card">
+      <div class="card-body">
+        {{ companyName }}
+      </div>
+    </div>
+  </a>
+</div>
+
+<style>
+  .company-card {
+    background-color: #ffead5;
+    font-weight: 700;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    margin-right: 10px;
+  }
+  .company-card:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+  .no-padding {
+    padding: 0;
+  }
+  .col-card > a {
+    color: black;
+  }
+  .col-card > a:hover {
+    text-decoration: none;
+  }
+</style>

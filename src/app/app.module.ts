@@ -22,6 +22,9 @@ import { ProfilePageComponent } from './profile/profile-page.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { LoginPageComponent } from './auth/login-page.component';
 import { CompareModalComponent } from './modals/compare-modal.component';
+import { CompanyCardComponent } from './company-card/company-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ComparePageComponent } from './compare/compare-page.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,14 @@ import { CompareModalComponent } from './modals/compare-modal.component';
     SearchComponent,
     MetricsComponent,
     CompareModalComponent,
+    ComparePageComponent,
     LineChartComponent,
     ProfilePageComponent,
     FooterComponent,
     DashboardComponent,
     FavouritesComponent,
     LoginPageComponent,
+    CompanyCardComponent,
     SpinnerComponent,
     ContentAnimateDirective
   ],
@@ -46,6 +51,7 @@ import { CompareModalComponent } from './modals/compare-modal.component';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     ChartsModule

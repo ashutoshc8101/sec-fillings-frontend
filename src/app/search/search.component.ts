@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
 import { SearchService } from "../services/search.service";
 
@@ -9,23 +10,11 @@ export class SearchComponent {
   searchTerm: string = '';
 
   results = [];
-  recentSearches = [];
-
-  companyData = [
-    {
-      name: 'Zoom',
-      cik: '2323',
-      ticket: '29323'
-    },
-    {
-      name: 'Dominos',
-      cik: '678677',
-      ticket: '12312'
-    }
-  ];
+  mostViewed = [];
 
   constructor(
-    private searchService: SearchService
+    private searchService: SearchService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +22,13 @@ export class SearchComponent {
       this.searchTerm = query;
       this.getResults(query);
     });
+
+    this.http.get<{ data: Object[] }>('http://localhost:8000/company/most_searched/').toPromise()
+      .then((res) => {
+        this.mostViewed = res.data;
+      }, (error) => {
+        console.error(error);
+      });
   }
 
   search(): void {
@@ -40,8 +36,14 @@ export class SearchComponent {
   }
 
   getResults(query: string): void {
-    this.results = this.companyData.filter((result) => {
-      return result.name.toLowerCase().search(query.toLowerCase()) > -1;
+    this.http.get<Object[]>('http://localhost:8000/company/search/', {
+      params: {
+        search: query
+      }
+    }).toPromise().then((result) => {
+      this.results = result;
+    }, (error) => {
+      console.error(error);
     });
   }
 }

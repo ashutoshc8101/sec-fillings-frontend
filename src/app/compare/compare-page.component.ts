@@ -19,8 +19,12 @@ export class ComparePageComponent {
     this.route.queryParams.subscribe(params => {
       let cik1 = this.route.snapshot.paramMap.get('cik1');
       let cik2 = this.route.snapshot.paramMap.get('cik2');
-      this.companyData1 = this.companyDataService.getCompanyDataFromCIK(cik1);
-      this.companyData2 = this.companyDataService.getCompanyDataFromCIK(cik2);
+      this.companyDataService.getCompanyDataFromCIK(cik1).then((res) => {
+        this.companyData1 = res;
+      }, (err) => { console.error(err) });
+      this.companyDataService.getCompanyDataFromCIK(cik2).then((res) => {
+        this.companyData2 = res;
+      }, (err) => { console.error(err) });
     });
   }
 }

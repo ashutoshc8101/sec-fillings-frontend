@@ -2,20 +2,13 @@
   <div class="card-body">
     <div class="row">
       <div class="col-4">
-        <img src="/assets/images/faces/face1.jpg" alt="Profile picture" width="100%">
+        <img src="/assets/images/faces/face1.png" alt="Profile picture" width="100%">
       </div>
       <div class="col-8">
-        <h1>David Greymaax</h1>
-        <div class="designation">Investor</div>
-        <div>Address: New York</div>
+        <h1>{{ user.username }}</h1>
         <div>
-          Email: davidgreymaax@gmail.com
+          Email: {{ user.email }}
         </div>
-        <div>
-          Phone: 899-1212-1212
-        </div>
-        <div>Birthday: 12-12-1994</div>
-        <div>Gender: Male</div>
       </div>
     </div>
   </div>
