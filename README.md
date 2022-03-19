@@ -40,6 +40,14 @@ common bottom-up framework.
   ![image](https://user-images.githubusercontent.com/24855641/159119341-b6dbccbb-c100-4a36-9c8f-c94f4b952e3f.png)
 
 ## Architecture Overview:
+![flow_diagram_digital_alpha (1)](https://user-images.githubusercontent.com/24855641/159120589-f75b97fa-774d-4a2e-b317-7cd86ee4836d.png)
+
+
+- The source of metrics in our app is EDGAR. Edgar API is used to scrap metrics.
+- The scrapped forms (10K, 10Q, 8K) are stored as csv files.
+- A scheduled cron job reads these scrapped csv files, obtain neccessary metrics and seeds them into the backend database.
+- The django backend reads the database and provides the necessary data to the frontend. It also powers user authentication, search and favourites functionalities.
+- Frontend written using angular provides a fluid dashboard for easy viewing and comparision of SaaS metrics.
 
 ## Technologies Used:
 - [Edgar API](https://www.sec.gov/edgar/sec-api-documentation)
