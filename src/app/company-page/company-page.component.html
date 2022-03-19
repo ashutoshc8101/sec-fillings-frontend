@@ -26,7 +26,7 @@
         <div class="col-sm">
           <div class="card" style="margin-top: 20px">
             <div class="card-body">
-              <b>Growth:</b> {{ companyData.performance_data[0][0].Growth }} / 100
+              <b>Growth:</b> {{ companyData.performance_data[0][0].Growth % 100 }} / 100
               <div class="progress">
                 <div class="progress-bar" role="progressbar" [style.width]="companyData.performance_data[0][0].Growth + '%'" [attr.aria-valuenow]="companyData.performance_data[0][0].Growth" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -36,7 +36,7 @@
         <div class="col-sm">
           <div class="card" style="margin-top: 20px">
             <div class="card-body">
-              <b>Profitability:</b> {{ companyData.performance_data[0][0].Profitability }} / 100
+              <b>Profitability:</b> {{ companyData.performance_data[0][0].Profitability % 100 }} / 100
               <div class="progress">
                 <div class="progress-bar" role="progressbar" [style.width]="companyData.performance_data[0][0].Profitability + '%'" [attr.aria-valuenow]="companyData.performance_data[0][0].Profitability" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -46,7 +46,7 @@
         <div class="col-sm">
           <div class="card" style="margin-top: 20px">
             <div class="card-body">
-              <b>Investability:</b> {{ companyData.performance_data[0][0].Investibility }} / 100
+              <b>Investability:</b> {{ companyData.performance_data[0][0].Investibility % 100 }} / 100
               <div class="progress">
                 <div class="progress-bar" role="progressbar" [style.width]="companyData.performance_data[0][0].Investibility + '%'" [attr.aria-valuenow]="companyData.performance_data[0][0].Investibility" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
@@ -64,12 +64,16 @@
           <div class="col-4 col-sm-4 col-md-4 col-lg-4 no-padding" *ngFor="let metric of metricsData | keyvalue">
             <div class="card metric-card">
               <div class="card-body">
-                <div style="font-weight: 700;">{{ metric.key | titlecase }}</div>
+                <div style="font-weight: 700;">
+                  {{ metric.key | titlecase }}
+                </div>
                 <hr>
                 <div style="margin-top: 20px">
                   <ng-container *ngFor="let value of metric.value; let idx = index">
                     <div *ngIf="value.Value !== -1 && idx < 4" style="font-size: 0.9rem">
-                      $ {{ value.Value }} <b>({{ value.Filing_Date.split('-')[0] }})</b>
+                      <a [href]="value.Source_Link" target="_blank" style="color: black">
+                        $ {{ value.Value }} <b>({{ value.Filing_Date.split('-')[0] }})</b>
+                      </a>
                     </div>
                   </ng-container>
                   <div style="margin-top: 20px;"></div>
