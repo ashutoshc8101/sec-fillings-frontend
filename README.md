@@ -4,7 +4,7 @@ SEC Filings analyzer frontend made using angular
 ## Prerequisites
 Install Node.js which includes Node Package Manager
 
-# Installation
+## Installation
 
 1. Clone this repository on local machine
 ```
@@ -18,6 +18,6 @@ npm install
 
 3. Run local server using `ng serve`
 
-# Interface
+## Interface
 ![image](https://user-images.githubusercontent.com/24855641/159113435-15288908-edde-48d3-b937-60cf1637a3dc.png)
 
