@@ -50,7 +50,16 @@ python scrape.py
 python manage.py runserver
 ```
 
+**Feeding companies to backend**
+This process is manual for now but it is planned to be automated.
+- Run django backend server using `python manage.py runserver`
+- Visit http://localhost:8000/admin/ and login using the superuser credentails
+- Once logged in, add companies with their CIK and ticket numbers.
+![image](https://user-images.githubusercontent.com/24855641/159132813-d90c41cc-30fc-490d-a888-c35d13e6c85f.png)
+
 **Seeding**:
+Note, Feeding companies to backend is a pre-requisite for this step.
+
 Database should be seeded from the csv files before actual usage of the application.
 **Manual**:
 This can be done by sending a GET request to route `/company/seeder/`.
@@ -62,7 +71,6 @@ Instructions for using cron jobs
 ```
 python manage.py crontab add
 ```
-
 
 ## Problem Statement
 The SEC’s EDGAR database contains terabytes of documents and data, including press releases,
