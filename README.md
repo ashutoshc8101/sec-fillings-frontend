@@ -41,7 +41,8 @@ python manage.py createsuperuser
 
 **Scraping**:
 ```
-python scraping/scrape.py
+cd scraping
+python scrape.py
 ```
 
 **Run backend server**:
