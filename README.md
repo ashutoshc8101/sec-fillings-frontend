@@ -6,6 +6,8 @@ Install Node.js which includes Node Package Manager
 
 ## Installation
 
+### Frontend
+
 1. Clone this repository on local machine
 ```
 git clone https://github.com/ashutoshc8101/sec-fillings-frontend.git
@@ -16,7 +18,40 @@ git clone https://github.com/ashutoshc8101/sec-fillings-frontend.git
 npm install
 ```
 
-3. Run local server using `ng serve`
+3. Run frontend locally using
+```
+ng serve
+```
+
+### Backend
+Python >= 3.7 recommended. Python 2 not supported.
+
+**Installation**
+
+```
+git clone <backend_repo>
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+**Scraping**:
+```
+python scraping/scrape.py
+```
+
+**Run backend server**:
+```
+python manage.py runserver
+```
+
+**Seeding**:
+Database should be seeded from the csv files before actual usage of the application.
+This can be done by sending a GET request to route `/company/seeder/`.
+
 
 ## Problem Statement
 The SEC’s EDGAR database contains terabytes of documents and data, including press releases,
@@ -48,6 +83,14 @@ common bottom-up framework.
 - A scheduled cron job reads these scrapped csv files, obtain neccessary metrics and seeds them into the backend database.
 - The django backend reads the database and provides the necessary data to the frontend. It also powers user authentication, search and favourites functionalities.
 - Frontend written using angular provides a fluid dashboard for easy viewing and comparision of SaaS metrics.
+
+## ML Model Used:
+Since we had a small training dataset, we went on to use simple machine learning regression models to fit our data. Experiments were performed with three different machine learning models, namely Ridge Regression, SVM Regressor and Lasso Regression. Among these the Lasso model which uses L1 regularization, yielded the best generalization for the validation dataset. 
+Two different models were deployed with each category considered as a separate label in each dataset.
+Growth estimation model.
+Profitability estimation model
+The lasso procedure encourages simple and sparse models(i.e models with fewer parameters). It also helps reduce overfitting of the model to the dataset, which had to be specially dealt with in this case. Thus the lasso model was chosen and the results have been displayed on the dashboard.
+
 
 ## Technologies Used:
 - [Edgar API](https://www.sec.gov/edgar/sec-api-documentation)
