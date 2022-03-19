@@ -2,7 +2,7 @@
   <a [routerLink]="'/company/' + cik">
     <div class="card company-card">
       <div class="card-body">
-        {{ companyName }}
+        {{ companyName | titlecase }}
       </div>
     </div>
   </a>

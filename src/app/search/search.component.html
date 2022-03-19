@@ -2,8 +2,7 @@
        type="text"
        [(ngModel)]="searchTerm"
        placeholder="Search by company name"
-       (keydown)="search()"
-       >
+       (keydown)="search()">
 
 <div class="card recent-searchs-card">
   <div class="card-body">
@@ -20,13 +19,12 @@
       <h5 *ngIf="!results.length">No results found</h5>
       <div class="container">
         <div class="row">
-          <company-card [companyName]="result.Name" [cik]="result.CIK_Number" *ngFor="let result of results"></company-card>
+            <company-card [companyName]="result.Name" [cik]="result.CIK_Number" *ngFor="let result of results"></company-card>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <style>
   .search-input {

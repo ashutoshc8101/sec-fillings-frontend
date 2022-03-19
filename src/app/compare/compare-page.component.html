@@ -3,24 +3,62 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3><b>{{ companyData1.company_data[0].Name }}</b></h3>
+          <h3><b>{{ companyData1.company_data[0].Name | titlecase }}</b></h3>
+          <hr>
           <h5>CIK: {{ companyData1.company_data[0].CIK_Number }}</h5>
           <h5>Ticket: {{ companyData1.company_data[0].Ticket_Number }}</h5>
+          <hr>
           <h5>Growth: {{ companyData1.performance_data[0][0].Growth }}</h5>
           <h5>Profitability: {{ companyData1.performance_data[0][0].Profitability }}</h5>
           <h5>Investability: {{ companyData1.performance_data[0][0].Investibility }}</h5>
+          <hr>
+          <div *ngFor="let metric of metricsData1 | keyvalue">
+            <div style="font-weight: 700;">{{ metric.key | titlecase }}</div>
+              <hr>
+            <div style="margin-top: 20px">
+              <ng-container *ngFor="let value of metric.value; let idx = index">
+                <div *ngIf="value.Value !== -1 && idx < 4" style="font-size: 0.9rem">
+                  $ {{ value.Value }} <b>({{ value.Filing_Date.split('-')[0] }})</b>
+                </div>
+              </ng-container>
+              <div style="margin-top: 20px;"></div>
+              <div style="max-width: 90%;">
+                <line-chart [data]="metric.value" [label]="metric.key | titlecase"></line-chart>
+              </div>
+            </div>
+            <hr>
+          </div>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3><b>{{ companyData2.company_data[0].Name }}</b></h3>
+          <h3><b>{{ companyData2.company_data[0].Name | titlecase }}</b></h3>
+          <hr>
           <h5>CIK: {{ companyData2.company_data[0].CIK_Number }}</h5>
           <h5>Ticket: {{ companyData2.company_data[0].Ticket_Number }}</h5>
+          <hr>
           <h5>Growth: {{ companyData2.performance_data[0][0].Growth }}</h5>
           <h5>Profitability: {{ companyData2.performance_data[0][0].Profitability }}</h5>
           <h5>Investability: {{ companyData2.performance_data[0][0].Investibility }}</h5>
+          <hr>
+          <div *ngFor="let metric of metricsData2 | keyvalue">
+            <div style="font-weight: 700;">{{ metric.key | titlecase }}</div>
+            <hr>
+            <div style="margin-top: 20px">
+              <ng-container *ngFor="let value of metric.value; let idx = index">
+                <div *ngIf="value.Value !== -1 && idx < 4" style="font-size: 0.9rem">
+                  $ {{ value.Value }} <b>({{ value.Filing_Date.split('-')[0] }})</b>
+                </div>
+              </ng-container>
+              <div style="margin-top: 20px;"></div>
+              <div style="max-width: 90%">
+                <line-chart [data]="metric.value" [label]="metric.key | titlecase"></line-chart>
+              </div>
+            </div>
+            <hr>
+          </div>
         </div>
       </div>
     </div>

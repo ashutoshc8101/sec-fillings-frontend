@@ -52,12 +52,10 @@ export class NavbarComponent {
     return this.searchService.query;
   }
 
-  // toggle sidebar in small devices
   toggleOffcanvas() {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
   }
 
-  // toggle sidebar
   toggleSidebar() {
     let body = document.querySelector('body');
     if((!body.classList.contains('sidebar-toggle-display')) && (!body.classList.contains('sidebar-absolute'))) {
@@ -76,10 +74,4 @@ export class NavbarComponent {
       }
     }
   }
-
-  // toggle right sidebar
-  // toggleRightSidebar() {
-  //   document.querySelector('#right-sidebar').classList.toggle('open');
-  // }
-
 }

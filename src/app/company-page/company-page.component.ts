@@ -12,6 +12,7 @@ import { CompanyDataService } from "../services/company-data.service";
 })
 export class CompanyPage {
   companyData;
+  metricsData = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,13 @@ export class CompanyPage {
         let cik = this.route.snapshot.paramMap.get('cik');
         this.companyDataService.getCompanyDataFromCIK(cik).then((resp) => {
           this.companyData = resp;
+          for (let i = 0; i < this.companyData.metrics_data[0].length; i++) {
+            let key = this.companyData.metrics_data[0][i].Metric_Type;
+            if (!(key in this.metricsData)) {
+              this.metricsData[key] = [];
+            }
+            this.metricsData[key].push(this.companyData.metrics_data[0][i]);
+          }
         }, (error) => {
           console.error(error);
         });
